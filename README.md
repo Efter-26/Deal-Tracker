@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📊 Deal Tracker CRM
 
-## Getting Started
+**Deal Tracker** is a sleek, simple CRM-style web app for managing sales deals. It lets users monitor the current status of deals — whether they're still leads, in negotiation, or successfully closed — all in one clean interface.
 
-First, run the development server:
+Live demo:
+- 🔗 Frontend: [https://deal-tracker-by-ema.netlify.app](https://deal-tracker-by-ema.netlify.app)
+- 🔗 Backend: [https://deal-tracker-server.vercel.app/api/deals](https://deal-tracker-server.vercel.app/api/deals)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- 🎯 View a list of sales deals with current statuses
+- 🔄 Update deal statuses dynamically from a dropdown
+- 💅 Fully responsive, stylish UI built with Tailwind CSS
+- ⚙️ Backend served via **Vercel Serverless Functions**
+- 🔐 Realistic status options used in CRM flows like Lead, Negotiating, Closed - Won, and Closed - Lost
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧠 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+### `Frontend (React + Next.js)`
+- Uses **Next.js App Router**
+- Hosted on **Netlify**
+- State management handled with React `useState`
+- API calls made using a utility `fetchDeals()` function
+- Deals fetched from backend on component mount (`useEffect`)
+- Beautiful modern UI with TailwindCSS and gradients
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### `Backend (Node.js API)`
+- Served through **Vercel Serverless Functions**
+- Exposes a static list of deals through a REST API (`/api/deals`)
+- No database used — backend sends JSON as mock data
+- Hosted on **Vercel** as a separate repository
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+👉 Backend GitHub Repo: [deal-tracker-server](https://github.com/Efter-26/Deal-Tracker-Server)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔄 How did I handle front-end state change?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Front-end state changes are handled using React’s built-in `useState` hook. When a user selects a new status from the dropdown for a specific deal:
+
+1. The component holds the status value in a local state.
+2. On `onChange` of the `<select>` dropdown, the state updates instantly using `setStatus()`.
+3. This creates an **immediate UI update** without needing a page refresh.
+
+---
+
+## 🛠️ Tech Stack
+
+| Part      | Stack                          |
+|-----------|--------------------------------|
+| Frontend  | React, Next.js, Tailwind CSS   |
+| Backend   | Node.js, Express.js (Vercel Serverless API)|
+| Hosting   | Netlify (frontend) & Vercel (backend) |
+
+---
+
+## 📁 Folder Structure
+
+├── app/
+│   └── page.js                # Main page that renders the deal tracker
+├── components/
+│   └── DealItem.js            # Reusable component to display a deal
+├── utils/
+│   └── fetchDeals.js          # Utility function to fetch deals from backend
+├...
+
+
