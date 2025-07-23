@@ -13,8 +13,8 @@ Live demo:
 - 🎯 View a list of sales deals with current statuses
 - 🔄 Update deal statuses dynamically from a dropdown
 - 💅 Fully responsive, stylish UI built with Tailwind CSS
-- ⚙️ Backend served via **Vercel Serverless Functions**
-- 🔐 Realistic status options used in CRM flows like Lead, Negotiating, Closed - Won, and Closed - Lost
+- ⚙️ Fetched data via API endpoints.
+- 🔐 Realistic status options used like Lead, Negotiating, Closed - Won, and Closed - Lost
 
 ---
 
@@ -53,7 +53,7 @@ Front-end state changes are handled using React’s built-in `useState` hook. Wh
 | Part      | Stack                          |
 |-----------|--------------------------------|
 | Frontend  | React, Next.js, Tailwind CSS   |
-| Backend   | Node.js, Express.js (Vercel Serverless API)|
+| Backend   | Node.js, Express.js |
 | Hosting   | Netlify (frontend) & Vercel (backend) |
 
 ---
