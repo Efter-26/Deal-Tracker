@@ -60,6 +60,7 @@ Front-end state changes are handled using React’s built-in `useState` hook. Wh
 
 ## 📁 Folder Structure
 
+```
 ├── app/
 │   └── page.js                # Main page that renders the deal tracker
 ├── components/
@@ -67,5 +68,4 @@ Front-end state changes are handled using React’s built-in `useState` hook. Wh
 ├── utils/
 │   └── fetchDeals.js          # Utility function to fetch deals from backend
 ├...
-
-
+```
