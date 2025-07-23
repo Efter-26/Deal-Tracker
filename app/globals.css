@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
+/* Light & Dark mode color variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: #f9fafb; /* light gray for better contrast */
+  --foreground: #111827; /* neutral dark gray */
 
-@theme inline {
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.05);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans, 'Inter', sans-serif);
+  --font-mono: var(--font-geist-mono, 'Fira Code', monospace);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #f3f4f6;
+
+    --card-bg: #1a1a1a;
+    --card-shadow: rgba(255, 255, 255, 0.03);
   }
 }
 
+/* Base styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+/* Deal App Specific UI Enhancements */
+.container {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3b82f6; /* Tailwind blue-500 */
+  margin-bottom: 2rem;
+}
+
+.deal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Deal Card */
+.deal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+  color: var(--color-foreground);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.deal-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.deal-name {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.deal-status {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: #6b7280; /* Tailwind gray-500 */
+}
+
+.status-dropdown {
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  color: #111827;
+  transition: border 0.2s ease;
+}
+
+.status-dropdown:focus {
+  border-color: #3b82f6;
+  outline: none;
+  background-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .status-dropdown {
+    background-color: #1f2937; /* Tailwind gray-800 */
+    color: #f9fafb;
+    border-color: #4b5563; /* Tailwind gray-600 */
+  }
+
+  .status-dropdown:focus {
+    background-color: #111827;
+    border-color: #3b82f6;
+  }
+
+  .deal-status {
+    color: #9ca3af; /* gray-400 */
+  }
+}
+
+/* No deals */
+.no-deals {
+  text-align: center;
+  font-style: italic;
+  color: #9ca3af;
 }
